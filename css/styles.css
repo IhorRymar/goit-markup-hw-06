@@ -206,7 +206,7 @@ button {
   margin-bottom: 30px;
 }
 
-.order-btn {
+.main-btn {
   font-family: inherit;
   font-weight: bold;
   font-size: 16px;
@@ -219,9 +219,31 @@ button {
   min-width: 200px;
   min-height: 50px;
   border-radius: 4px;
+  border: none;
+}
+
+.order-btn {
+  margin: auto;
+  display: block;
+}
+
+.form-btn {
   margin: auto;
   display: block;
   border: none;
+  margin-top: 30px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.form-btn:hover,
+.form-btn:focus {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: box-shadow, var(--primary-transition);
+}
+
+.sign-btn {
+  margin-left: 12px;
+  justify-items: center;
 }
 
 /* ОФОРМЛЕНИЕ ТИТЛА СЕКЦИЙ */
@@ -590,7 +612,8 @@ img {
   margin-left: 70px;
 }
 
-.sn-list-title {
+.sn-list-title,
+.sign-title {
   font-weight: bold;
   font-size: 14px;
   line-height: 1.14;
@@ -633,8 +656,29 @@ img {
   fill: inherit;
 }
 
-/* МОДАЛКА */
+.sign-forms {
+  display: inline-flex;
+  flex-direction: column;
+  margin-left: 93px;
+}
 
+.sign-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+.sign-email {
+  width: 358px;
+  height: 50px;
+  padding-left: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  background-color: transparent;
+  outline: none;
+  color: var(--primary-color);
+}
+
+/* МОДАЛКА */
 .backdrop {
   position: fixed;
   top: 0;
@@ -645,8 +689,9 @@ img {
 }
 
 .modal {
-  width: 528px;
-  height: 521px;
+  min-width: 528px;
+  min-height: 581px;
+  padding: 40px;
   background-color: var(--primary-color);
   border-radius: 4px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -657,6 +702,131 @@ img {
   transition: transform var(--primary-transition);
 }
 
+/* ---------------------------------ФОРМЫ--------------------------------- */
+
+.form-title {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin-bottom: 12px;
+}
+
+.form-wrap {
+  margin-bottom: 10px;
+}
+
+.input-text {
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  color: var(--secondary-text-color);
+}
+
+.input-wrap {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.form-input {
+  width: 100%;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  margin-top: 4px;
+  outline: none;
+  transition: border-color var(--primary-transition);
+}
+
+.form-input:hover,
+.form-input:focus {
+  border-color: var(--accent-color);
+}
+
+.form-size {
+  height: 40px;
+  padding-left: 42px;
+}
+
+.form-icon {
+  position: absolute;
+  left: 12px;
+  top: 55%;
+  fill: inherit;
+  transform: translateY(-55%);
+  transition: fill var(--primary-transition);
+}
+
+.form-input:hover + .form-icon,
+.form-input:focus + .form-icon {
+  fill: var(--accent-color);
+}
+
+.comments-size {
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+  height: 120px;
+  padding: 12px 16px;
+  resize: none;
+}
+
+.comments-size::placeholder {
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.checkbox-wrap {
+  margin-top: 20px;
+  margin-left: 14px;
+}
+
+.confirm-check {
+  appearance: none;
+  position: absolute;
+}
+
+.confirm-text {
+  line-height: 1.7;
+  color: var(--secondary-text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirm-link {
+  color: var(--accent-color);
+  padding-left: 6px;
+}
+
+.confirm-text span {
+  width: 16px;
+  height: 15px;
+  border: 2px solid #212121;
+  border-radius: 4px;
+  margin-right: 8.38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirm-icon {
+  fill: transparent;
+}
+
+.confirm-check:checked + .confirm-text span {
+  border: none;
+  background-color: var(--accent-color);
+  transition: background-color var(--primary-transition);
+}
+
+.confirm-check:checked + .confirm-text .confirm-icon {
+  fill: var(--primary-color);
+  transition: fill var(--primary-transition);
+}
+
+/* ------------------------------------------------------------------------------ */
+
 .modal-close {
   width: 30px;
   height: 30px;
@@ -666,6 +836,12 @@ img {
   position: absolute;
   top: 8px;
   right: 8px;
+  transition: fill var(--primary-transition);
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  fill: var(--accent-color);
 }
 
 .close-icon {
@@ -674,7 +850,7 @@ img {
   right: 5px;
   width: 18px;
   height: 18px;
-  fill: #000000;
+  fill: inherit;
 }
 
 .backdrop.is-hidden .modal {
